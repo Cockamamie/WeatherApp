@@ -1,0 +1,40 @@
+.input {
+    &__container {
+        margin: 79px auto 0;
+        max-width: 617px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 7px;
+    }
+
+    &__input-field {
+        width: 405px;
+        height: 49px;
+        border: 2px solid;
+    }
+
+    &__label {
+        font-size: 40px;
+        font-weight: 400;
+    }
+
+    &__submit {
+        height: 91px;
+        border: 0;
+        border-radius: 8px;
+        background: #355FCA;
+        color: #FFFFFF;
+        font-family: Inter, serif;
+        font-size: 40px;
+        font-weight: 400;
+    }
+}
