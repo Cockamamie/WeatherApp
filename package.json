@@ -2,7 +2,7 @@
   "name": "weatherapp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Cockamamie/WeatherApp#readme",
   "dependencies": {
     "ajv": "^8.11.0",
+    "node-fetch": "^3.3.2",
     "node-sass": "^7.0.3"
   },
   "devDependencies": {
