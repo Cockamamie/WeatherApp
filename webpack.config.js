@@ -1,19 +1,18 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: {
-        styles: './src/styles/main.scss'
-    },
+    entry: path.join(__dirname, 'src', 'app.js'),
     output: {
-        clean: false,
-        assetModuleFilename: "assets/[hash][ext]"
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
     },
     devServer: {
         open: true,
         static: {
-            directory: './src',
+            directory: path.join(__dirname, 'dist'),
             watch: true
         }
     },
@@ -21,14 +20,13 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
         }),
-        new HtmlWebpackPlugin({template: "./src/index.html"})
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src', 'index.html'),
+            filename: 'index.html',
+        }),
     ],
     module: {
         rules: [
-            {
-                test: /\.html$/i,
-                loader: "html-loader",
-            },
             {
                 test: /\.s[ac]ss$/i,
                 use: [

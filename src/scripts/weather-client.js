@@ -1,9 +1,7 @@
-import fetch from "node-fetch";
-
 const url = "http://api.weatherapi.com/v1/current.json";
 const apikey = "6bcea4ce48dc43d1b91195832231811";
 
-export async function requestWeather(latitude, longitude) {
+export default async function requestWeather(latitude, longitude) {
     const queryParameters = new URLSearchParams();
     queryParameters.append('q', `${latitude},${longitude}`);
     queryParameters.append('key', apikey)
@@ -12,7 +10,7 @@ export async function requestWeather(latitude, longitude) {
     };
     const response = await fetch(url + `?${queryParameters}`, request);
     const body = await response.json();
-    
+
     return convertWeatherResponseToModel(body);
 }
 
