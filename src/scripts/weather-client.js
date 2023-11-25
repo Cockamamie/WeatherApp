@@ -15,11 +15,11 @@ export default async function requestWeather(latitude, longitude) {
 }
 
 function convertWeatherResponseToModel(response) {
-    const measurments = response['current']
+    const measurments = response.current
     return {
         location: response.location.name,
         localTime: response.localTime,
-        tempertature: {
+        temperature: {
             tempC: measurments.temp_c,
             tempF: measurments.temp_f,
             likeC: measurments.feelslike_c,

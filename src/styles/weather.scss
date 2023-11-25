@@ -1,0 +1,40 @@
+.weather {
+    &__container {
+        margin: 91px auto 0;
+//        max-width: 1086px;
+        max-width: 773px;
+    }
+
+    &__wrapper {
+        display: flex;
+//        justify-content: space-between;
+        gap: 50px;
+    }
+
+    &__measurments {
+        margin: 25px 0;
+    }
+    &__measurments-item:not(:first-child) {
+        margin-top: 20px;
+    }
+
+    &__measurments-item {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+    }
+
+    &__measurment-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    &__measurment-info {
+        font-size: 32px;
+    }
+
+    &__condition-img, &__map {
+        height: 350px;
+        width: 350px;
+    }
+}

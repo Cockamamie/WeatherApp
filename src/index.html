@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather</title>
-    <link rel="icon" href="/src/images/icon.png">
+    <link rel="icon" href="./images/icon.ico">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
   </head>
   <body>
@@ -15,16 +15,45 @@
                 <form class="input__form">
                     <div class="input__item">
                         <label class="input__label" for="latitude">Широта</label>
-                        <input class="input__input-field" type="text" id="latitude" name="latitude">
+                        <input class="input__input-field" type="number" id="latitude" step='00.000001' name="latitude">
                     </div>
                     <div class="input__item">
                         <label class="input__label" for="longitude">Долгота</label>
-                        <input class="input__input-field" type="text" id="longitude" name="longitude">
+                        <input class="input__input-field" type="number" id="longitude" step='00.000001' name="longitude">
                     </div>
                     <input class="input__submit" type="submit" value="Показать погоду">
                 </form>
             </div>
         </section>
+        <section class="weather">
+            <div class="weather__container">
+                <div class="weather__wrapper">
+                    <img class="weather__condition-img" src="./images/weather-types/animated/clear-day.svg" alt="">
+                    <div class="weather__measurments">
+                        <ul class="weather__measurments-list">
+                            <li class="weather__measurments-item weather__measurments-item_temperature">
+                                <img class="weather__measurment-img" src="./images/measurments/thermometer-warm.png" alt="">
+                                <p class="weather__measurment-info">15C</p>
+                            </li>
+                            <li class="weather__measurments-item weather__measurments-item_humidity">
+                                <img class="weather__measurment-img" src="./images/measurments/hygrometer.png" alt="">
+                                <p class="weather__measurment-info">15%</p>
+                            </li>
+                            <li class="weather__measurments-item weather__measurments-item_atmospheric-pressure">
+                                <img class="weather__measurment-img" src="./images/measurments/atmospheric-pressure.png" alt="">
+                                <p class="weather__measurment-info">100 bar</p>
+                            </li>
+                            <li class="weather__measurments-item weather__measurments-item_wind-speed">
+                                <img class="weather__measurment-img" src="./images/measurments/wind.png" alt="">
+                                <p class="weather__measurment-info">2 м/c ЮЗ</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--<img class="weather__map" src="./images/weather-types/square.png" alt="">-->
+                </div>
+            </div>
+        </section>
     </main>
+    <script src="./app.js"></script>
   </body>
 </html>

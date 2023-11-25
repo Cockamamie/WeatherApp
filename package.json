@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Cockamamie/WeatherApp#readme",
   "dependencies": {
     "ajv": "^8.11.0",
+    "copy-webpack-plugin": "^11.0.0",
     "node-fetch": "^2.6.1",
     "node-sass": "^7.0.3"
   },
