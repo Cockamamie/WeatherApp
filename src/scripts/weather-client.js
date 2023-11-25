@@ -15,22 +15,27 @@ export default async function requestWeather(latitude, longitude) {
 }
 
 function convertWeatherResponseToModel(response) {
-    const measurments = response.current
+    const current = response['current']
+    const location = response['location'];
     return {
-        location: response.location.name,
-        localTime: response.localTime,
+        code: current['condition']['code'],
+        local: {
+            location: location['name'],
+            localTime: location['localtime'],
+            isDay: current['is_day'] === 1,
+        },
         temperature: {
-            tempC: measurments.temp_c,
-            tempF: measurments.temp_f,
-            likeC: measurments.feelslike_c,
-            likeF: measurments.feelslike_f
+            tempC: current['temp_c'],
+            tempF: current['temp_f'],
+            likeC: current['feelslike_c'],
+            likeF: current['feelslike_f']
         },
         wind: {
-            speedMph: measurments.wind_mph,
-            speedKph: measurments.wind_kph,
-            direction: measurments.wind_dir
+            speedMph: current['wind_mph'],
+            speedKph: current['wind_kph'],
+            direction: current['wind_dir']
         },
-        humidity: measurments.humidity,
-        pressure: measurments.pressure_mb,
+        humidity: current['humidity'],
+        pressure: current['pressure_mb'],
     };
 }
