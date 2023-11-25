@@ -20,11 +20,12 @@
         width: 405px;
         height: 49px;
         border: 2px solid;
+        font-family: Inter, serif;
+        font-size: 24px;
     }
 
     &__label {
         font-size: 40px;
-        font-weight: 400;
     }
 
     &__submit {

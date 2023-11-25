@@ -3,10 +3,13 @@ import './styles/main.scss';
 import weatherTypes from './client-configs/weather-types.json';
 
 const form = document.querySelector(".input__form");
+focusOnPageLoad(form);
 
 form.addEventListener("submit", async event => {
     event.preventDefault();
     await handleSubmit();
+    const weatherContainer = document.querySelector('.weather__container');
+    weatherContainer.style.display = 'block';
 });
 
 async function handleSubmit() {
@@ -85,4 +88,9 @@ function getMeasurmentElementChildren(parentModificator) {
 
 function getWindDirectionInRussian(windDirection) {
     return windDirection.replace(/N/g, 'С').replace(/E/g, 'В').replace(/W/g, 'З').replace(/S/g, 'Ю');
+}
+
+function focusOnPageLoad(form) {
+    const inputField = form.querySelector('.input__item .input__input-field');
+    inputField.focus();
 }
