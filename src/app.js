@@ -67,12 +67,13 @@ function setHumidity(humidity) {
 
 function setPressure(pressure) {
     const [_, textElement] = getMeasurmentElementChildren("atmospheric-pressure");
-    textElement.innerText = `${pressure} mb`;
+    const toRussianUnits = (pressureInMb) => Math.round(pressureInMb * 0.750062);
+    textElement.innerText = `${toRussianUnits(pressure)} мм рт.ст.`;
 }
 
 function setWindSpeed(windInfo) {
     const [_, textElement] = getMeasurmentElementChildren("wind-speed");
-    textElement.innerText = `${windInfo.speedKph} k/h ${windInfo.direction}`;
+    textElement.innerText = `${windInfo.speedKph} км/ч ${getWindDirectionInRussian(windInfo.direction)}`;
 }
 
 function getMeasurmentElementChildren(parentModificator) {
@@ -80,4 +81,8 @@ function getMeasurmentElementChildren(parentModificator) {
     const imgElement = measurmentElement.querySelector('.weather__measurment-img');
     const textElement = measurmentElement.querySelector('.weather__measurment-info');
     return [imgElement, textElement]
+}
+
+function getWindDirectionInRussian(windDirection) {
+    return windDirection.replace(/N/g, 'С').replace(/E/g, 'В').replace(/W/g, 'З').replace(/S/g, 'Ю');
 }
