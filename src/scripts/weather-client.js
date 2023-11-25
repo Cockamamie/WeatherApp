@@ -1,4 +1,4 @@
-const url = "http://api.weatherapi.com/v1/current.json";
+const url = "https://api.weatherapi.com/v1/current.json";
 const apikey = "6bcea4ce48dc43d1b91195832231811";
 
 export default async function requestWeather(latitude, longitude) {
