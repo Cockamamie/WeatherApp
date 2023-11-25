@@ -8,8 +8,6 @@ focusOnPageLoad(form);
 form.addEventListener("submit", async event => {
     event.preventDefault();
     await handleSubmit();
-    const weatherContainer = document.querySelector('.weather__container');
-    weatherContainer.style.display = 'block';
 });
 
 async function handleSubmit() {
@@ -18,10 +16,10 @@ async function handleSubmit() {
     const isCorrect = validateInput(lat, lon);
     if (!isCorrect)
         return;
-
     const result = await requestWeather(lat, lon);
-    console.log(result);
     showWeather(result);
+    const weatherContainer = document.querySelector('.weather__container');
+    weatherContainer.style.display = 'block';
 }
 
 function validateInput(lat, lon) {
