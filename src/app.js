@@ -1,6 +1,5 @@
 import requestWeather from "./scripts/weather-client";
 import './styles/main.scss';
-import data from './pictures.json';
 
 const form = document.querySelector(".input__form");
 
@@ -12,13 +11,24 @@ form.addEventListener("submit", async event => {
 async function handleSubmit() {
     const lat = document.getElementById("latitude").value;
     const lon = document.getElementById("longitude").value;
-    validateInput();
+    const isCorrect = validateInput(lat, lon);
+    if (!isCorrect)
+        return;
+
     const result = await requestWeather(lat, lon);
     applyWeather(result);
 }
 
-function validateInput() {
-
+function validateInput(lat, lon) {
+    if (lat === '' || lat === 0) {
+        alert('Широта не указана');
+        return false;
+    }
+    if (lon === '' || lon === 0) {
+        alert('Долгота не указана');
+        return false;
+    }
+    return true;
 }
 
 function applyWeather(weatherInfo) {
